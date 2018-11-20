@@ -30,8 +30,10 @@ const Album_not_exists = () =>({
   dispatch(fetch_Album())
   let request_query = ''
 
-
-let request = fetch('https://api.spotify.com/v1/artists/'+input.id+"/albums", request_init('GET', input.authToken))
+  const proxyurl = "https://cors-anywhere.herokuapp.com/";
+  let url = 'https://api.spotify.com/v1/artists/'+input.id+"/albums";
+  
+  let request = fetch(proxyurl+url, request_init('GET', input.authToken))
     .then((response)=>{
       if(response.ok){
           

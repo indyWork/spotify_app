@@ -39,8 +39,9 @@ const Artist_not_exists = () =>({
       })
   }
 
-
-  let request = fetch('https://api.spotify.com/v1/search?'+request_query, request_init('GET', input.authToken))
+  const proxyurl = "https://cors-anywhere.herokuapp.com/";
+  let url = 'https://api.spotify.com/v1/search?'+request_query;
+  let request = fetch(proxyurl+url, request_init('GET', input.authToken))
     .then((response)=>{
       if(response.ok){
           
